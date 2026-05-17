@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كنيسة القديس جاورجيوس للروم الأرثوذكس - الطيبة | St. George Greek Orthodox Church - Taybeh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --maroon: #800020;
+    --gold: #C5A028;
+    --gold-light: #D4AF37;
+    --navy: #1B3A5C;
+    --white: #FFFFFF;
+    --cream: #FAFAF7;
+    --gray-light: #F5F5F2;
+    --gray-text: #4A4A4A;
+    --border-light: #E8E4DC;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans Arabic', 'Amiri', serif;
+    background-color: var(--white);
+    color: #333;
+    line-height: 1.8;
+    direction: rtl;
+}
+
+.english {
+    font-family: 'Playfair Display', serif;
+    direction: ltr;
+    text-align: center;
+}
+
+/* Byzantine Border Pattern */
+.byzantine-border {
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, var(--gold) 10%, var(--maroon) 30%, 
+        var(--gold) 50%, var(--maroon) 70%, var(--gold) 90%, transparent 100%);
+    margin: 0;
+}
+
+.byzantine-border-thin {
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, var(--gold-light) 20%, var(--maroon) 50%, var(--gold-light) 80%, transparent 100%);
+    margin: 20px auto;
+    width: 60%;
+}
+
+/* Header */
+.site-header {
+    background: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.header-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.church-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    padding: 5px;
+    object-fit: contain;
+}
+
+.patriarchate-name {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.patriarchate-name-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    direction: ltr;
+}
+
+.church-name {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    color: var(--maroon);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.church-name-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--maroon);
+    letter-spacing: 1px;
+    direction: ltr;
+}
+
+/* Navigation */
+.main-nav {
+    background: var(--navy);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav-list li a {
+    display: block;
+    padding: 14px 20px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-list li a:hover {
+    background-color: rgba(197, 160, 40, 0.15);
+    border-bottom-color: var(--gold);
+    color: var(--gold-light);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0D2240 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 30px,
+        rgba(197, 160, 40, 0.03) 30px,
+        rgba(197, 160, 40, 0.03) 60px
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero .cross-symbol {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.hero h1 {
+    font-family: 'Amiri', serif;
+    font-size: 2.2rem;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero .subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 8px;
+}
+
+.hero .subtitle-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    direction: ltr;
+    letter-spacing: 1px;
+}
+
+/* Sections */
+.section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-alt {
+    background-color: var(--cream);
+}
+
+.section-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    color: var(--maroon);
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.section-title-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 30px;
+    direction: ltr;
+    letter-spacing: 1px;
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    gap: 15px;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.section-divider .cross-icon {
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+/* Content Cards */
+.content-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s;
+}
+
+.content-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.content-card h3 {
+    font-family: 'Amiri', serif;
+    color: var(--maroon);
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold-light);
+    display: inline-block;
+}
+
+.content-card p, .content-card li {
+    color: var(--gray-text);
+    line-height: 2;
+    font-size: 0.95rem;
+}
+
+.content-card ul {
+    padding-right: 20px;
+    margin-top: 10px;
+}
+
+.content-card ul li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.content-card ul li::marker {
+    color: var(--gold);
+}
+
+/* Project Proposal Section */
+.proposal-header {
+    background: var(--cream);
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.proposal-header .date {
+    font-size: 0.9rem;
+    color: var(--navy);
+    margin-bottom: 15px;
+}
+
+.proposal-header .addressee {
+    font-size: 1rem;
+    color: var(--gray-text);
+    margin-bottom: 20px;
+}
+
+.proposal-header .subject {
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    color: var(--maroon);
+    font-weight: 700;
+}
+
+/* Budget Table */
+.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.budget-table thead {
+    background: var(--navy);
+    color: var(--white);
+}
+
+.budget-table th {
+    padding: 12px 15px;
+    text-align: right;
+    font-weight: 600;
+}
+
+.budget-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.budget-table tbody tr:nth-child(even) {
+    background-color: var(--gray-light);
+}
+
+.budget-table tbody tr:last-child {
+    background-color: var(--maroon);
+    color: var(--white);
+    font-weight: 700;
+}
+
+.budget-table tbody tr:hover {
+    background-color: rgba(197, 160, 40, 0.08);
+}
+
+.budget-table tbody tr:last-child:hover {
+    background-color: var(--maroon);
+}
+
+/* Objectives Grid */
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.objective-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 25px;
+    border-top: 3px solid var(--gold);
+}
+
+.objective-card h4 {
+    color: var(--navy);
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.objective-card ul {
+    padding-right: 15px;
+}
+
+.objective-card li {
+    color: var(--gray-text);
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* Footer */
+.site-footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 50px 20px 30px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-cross {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.footer-content h3 {
+    font-family: 'Amiri', serif;
+    color: var(--gold-light);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.footer-content .footer-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    direction: ltr;
+    margin-bottom: 20px;
+}
+
+.footer-info {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(197, 160, 40, 0.3);
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+}
+
+/* Orthodox Cross SVG */
+.orthodox-cross-svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Total Amount Highlight */
+.total-highlight {
+    background: linear-gradient(135deg, var(--maroon), #5C0015);
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.total-highlight .amount {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin: 10px 0;
+}
+
+.total-highlight .label {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Print Styles */
+@media print {
+    .main-nav { display: none; }
+    .hero { padding: 30px 20px; }
+    .section { padding: 30px 20px; }
+    body { font-size: 11pt; }
+    .content-card { box-shadow: none; border: 1px solid #ccc; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 1.6rem; }
+    .church-name { font-size: 1.4rem; }
+    .nav-list li a { padding: 10px 12px; font-size: 0.8rem; }
+    .section { padding: 40px 15px; }
+    .proposal-header { padding: 25px 15px; }
+    .budget-table { font-size: 0.8rem; }
+    .budget-table th, .budget-table td { padding: 8px 10px; }
+    .objectives-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .nav-list { flex-direction: column; align-items: center; }
+    .hero { padding: 50px 15px; }
+    .hero h1 { font-size: 1.4rem; }
+    .church-logo { width: 90px; height: 90px; }
+}
+    </style>
+</head>
+<body>
+    <!-- Byzantine Top Border -->
+    <div class="byzantine-border"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <img src="logo.png" alt="شعار كنيسة القديس جاورجيوس" class="church-logo" onerror="this.style.display='none'">
+            <p class="patriarchate-name">بطريركية الروم الأرثوذكس المقدسية</p>
+            <p class="patriarchate-name-en">Greek Orthodox Patriarchate of Jerusalem</p>
+            <h1 class="church-name">كنيسة القديس جاورجيوس للروم الأرثوذكس - الطيبة</h1>
+            <p class="church-name-en">St. George Greek Orthodox Church - Taybeh</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">نبذة عن الطيبة</a></li>
+            <li><a href="#project">المشروع</a></li>
+            <li><a href="#objectives">الاهداف</a></li>
+            <li><a href="#importance">اهمية المشروع</a></li>
+            <li><a href="#engineering">الاعمال الهندسية</a></li>
+            <li><a href="#budget">الميزانية</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="cross-symbol">
+                <svg width="50" height="70" viewBox="0 0 50 70" class="orthodox-cross-svg">
+                    <rect x="22" y="0" width="6" height="70" fill="#C5A028"/>
+                    <rect x="15" y="8" width="20" height="5" fill="#C5A028"/>
+                    <rect x="10" y="22" width="30" height="6" fill="#C5A028"/>
+                    <rect x="13" y="55" width="24" height="5" fill="#C5A028" transform="rotate(-15 25 57.5)"/>
+                </svg>
+            </span>
+            <h1>كنيسة القديس جاورجيوس للروم الأرثوذكس</h1>
+            <p class="subtitle">بطريركية الروم الأرثوذكس المقدسية - الطيبة، فلسطين</p>
+            <p class="subtitle-en">St. George Greek Orthodox Church - Taybeh, Palestine</p>
+        </div>
+    </section>
+    <div class="byzantine-border"></div>
+
+    <!-- Proposal Introduction -->
+    <section class="section" id="proposal">
+        <div class="proposal-header">
+            <p class="date">التاريخ: 14/5/2026</p>
+            <p class="addressee">حضرة السادة جمعية ابناء الطيبة في الولايات المتحدة الامريكية (UTAA) المحترمين</p>
+            <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+            <p class="subject">طلب مشروع اعادة احياء وترميم الدير والمركز الرعوي<br>كنيسة القديس جاورجيوس للروم الأرثوذكس</p>
+        </div>
+
+        <div class="content-card">
+            <p>بالاشارة الى الموضوع اعلاه، نتقدم اليكم بهذا الطلب الكريم للموافقة ودعم تنفيذ مشروع اعادة تاهيل وترميم الدير والمركز الرعوي التابع لكنيسة القديس جاورجيوس للروم الأرثوذكس في بلدة الطيبة.</p>
+            <p style="margin-top:12px;">وقد تم اعداد دراسة فنية شاملة تتضمن التقييم الانشائي، وحصر الكميات، والتقدير المالي اللازم لتنفيذ الاعمال المطلوبة.</p>
+            <p style="margin-top:12px;">نامل من حضراتكم التكرم بدراسة الطلب ودعمه لما له من اهمية كبيرة في الحفاظ على هذا الصرح الديني والتاريخي ودوره في خدمة ابناء الرعية والمجتمع.</p>
+        </div>
+
+        <div class="content-card" style="border-right: 4px solid var(--gold);">
+            <h3>1. عنوان المشروع</h3>
+            <p><strong>اسم المشروع:</strong> اعادة احياء وترميم الدير والمركز الرعوي كنيسة القديس جاورجيوس</p>
+            <p><strong>موقع المشروع:</strong> الطيبة - رام الله، شارع الكنائس</p>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+
+    <!-- About Taybeh -->
+    <section class="section section-alt" id="about">
+        <h2 class="section-title">نبذة عن الطيبة</h2>
+        <p class="section-title-en">About Taybeh</p>
+
+        <div class="content-card">
+            <p>بلدة الطيبة هي احدى بلدات محافظة رام الله، تقع شمال شرق مدينة رام الله على بعد نحو 12 كم، وتبعد عن مدينة القدس حوالي 20 كم. وترتبط بمنطقة اريحا عبر طريق رئيسي بطول يقارب 23 كم، كما يحدها من الشرق اريحا.</p>
+            <p style="margin-top:12px;">تتميز البلدة بموقعها الجغرافي الاستراتيجي، اذ تقع على تلة مرتفعة تطل على منطقة الغور والبحر الميت بارتفاع يقارب 930 مترا عن سطح البحر، وهي ذات غالبية سكانية مسيحية وتحظى بوجود معالم دينية وتاريخية مهمة، من ابرزها كنيسة القديس جاورجيوس للروم الأرثوذكس.</p>
+            <p style="margin-top:12px;">انطلاقا من هذا الموقع المميز والطابع الديني والثقافي، تبرز الحاجة الى تعزيز البنية الدينية والرعوية في البلدة، من خلال دعم واستدامة اعمال اعادة تاهيل وترميم الدير والمركز الرعوي، بما يضمن استمرارية دوره الروحي والخدمي لخدمة ابناء الرعية والمجتمع المحلي.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+
+    <!-- Project Description -->
+    <section class="section" id="project">
+        <h2 class="section-title">وصف المشروع</h2>
+        <p class="section-title-en">Project Description</p>
+
+        <div class="content-card">
+            <h3>3. وصف المشروع</h3>
+            <p>يمثل هذا المشروع عملية ترميم وتاهيل شامل لمبنى كنسي تاريخي يعود لعام 1927، مكون من ثلاث طوابق، موزعة على جناحين الشرقي والغربي وكل جناح بمساحة 80 متر مربع اي كل طابق مساحة 160 متر بمجموع اجمالي للمساحات الداخلية 480 متر مربع ويقع مباشرة مقابل كنيسة القديس جاورجيوس للروم الأرثوذكس في الطيبة.</p>
+            <p style="margin-top:12px;">يهدف المشروع الى اعادة احياء المبنى من حالته المتدهورة وتحويله الى دير كنسي متكامل ومركز رعوي وشبابي وثقافي يخدم الكنيسة والمجتمع المحلي. يشمل المشروع اعمالا انشائية ومعمارية وكهربائية وصحية متكاملة، اضافة الى اعادة توزيع المساحات وتجهيزها لتكون صالحة للاستخدام الديني والاجتماعي والسياحي.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>4. الوضع الحالي للمشروع</h3>
+            <p>المبنى في وضع انشائي ومعماري متدهور ويحتاج الى اعادة تاهيل شاملة، وتشمل ابرز المشكلات:</p>
+            <ul>
+                <li>تهالك شامل في التشطيبات الداخلية</li>
+                <li>تشققات في الجدران والاسقف</li>
+                <li>تلف كبير في البلاط والارضيات والادراج</li>
+                <li>تمديدات كهرباء ومياه قديمة وغير صالحة</li>
+                <li>غياب انظمة العزل والرطوبة والحماية</li>
+                <li>تاكل في الابواب والشبابيك</li>
+                <li>اجزاء بحاجة الى اعادة بناء داخلية لتلائم الغرض من المبنى</li>
+            </ul>
+            <p style="margin-top:15px; padding: 12px; background: var(--cream); border-radius: 6px; border-right: 3px solid var(--maroon);">
+                <strong>وبناء على ذلك، فان المبنى يعتبر حاليا "هيكل قابل لاعادة الاحياء" وليس جاهزا للاستخدام دون تدخل هندسي شامل.</strong>
+            </p>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+
+    <!-- Objectives -->
+    <section class="section section-alt" id="objectives">
+        <h2 class="section-title">اهداف المشروع</h2>
+        <p class="section-title-en">Project Objectives</p>
+
+        <div class="content-card">
+            <ul>
+                <li>انشاء اول دير كنسي متكامل للكهنة والراهبات والضيوف تابع للكنيسة في الطيبة</li>
+                <li>تاسيس مركز شبابي وثقافي يخدم فئة الشباب والاطفال</li>
+                <li>انشاء مركز مجتمعي للنساء والانشطة الاجتماعية</li>
+                <li>اعادة تاهيل مبنى تراثي وحمايته من الانهيار</li>
+                <li>تنشيط السياحة الدينية في البلدة</li>
+                <li>خلق فرص عمل مباشرة وغير مباشرة</li>
+                <li>تطوير مشاريع صغيرة مدرة للدخل لدعم استدامة المشروع</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+
+    <!-- Importance -->
+    <section class="section" id="importance">
+        <h2 class="section-title">اهمية المشروع</h2>
+        <p class="section-title-en">Project Importance</p>
+
+        <div class="objectives-grid">
+            <div class="objective-card">
+                <h4>اولا: الاهمية الروحية والكنسية</h4>
+                <ul>
+                    <li>انشاء اول دير كنسي متكامل للكهنة والراهبات في البلدة</li>
+                    <li>توفير مقر رعوي دائم يليق برسالة الكنيسة</li>
+                    <li>دعم النشاطات الروحية والتعليمية والرعوية وتعزيز الوجود المسيحي في البلدة</li>
+                </ul>
+            </div>
+            <div class="objective-card">
+                <h4>ثانيا: الاهمية التراثية</h4>
+                <ul>
+                    <li>الحفاظ على مبنى تاريخي يزيد عمره عن 100 عام</li>
+                    <li>حماية الطابع المعماري التراثي للبلدة القديمة</li>
+                    <li>اعادة احياء معلم تاريخي استراتيجي مقابل الكنيسة مباشرة</li>
+                </ul>
+            </div>
+            <div class="objective-card">
+                <h4>ثالثا: الاهمية المجتمعية</h4>
+                <ul>
+                    <li>انشاء مركز حيوي للشباب والاطفال والنساء</li>
+                    <li>توفير مساحة امنة للنشاطات الثقافية والتعليمية</li>
+                    <li>دعم مدرسة الاحد والاجتماعات الروحية والمجتمعية</li>
+                </ul>
+            </div>
+            <div class="objective-card">
+                <h4>رابعا: الاهمية الاقتصادية والتنموية</h4>
+                <ul>
+                    <li>تشغيل الايدي العاملة المحلية خلال مراحل الترميم</li>
+                    <li>خلق فرص عمل مستقبلية للشباب والنساء</li>
+                    <li>تطوير مشاريع انتاجية مستدامة تؤمن دخلا دائما للمركز والدير</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+
+    <!-- Operational Plan -->
+    <section class="section section-alt">
+        <h2 class="section-title">الخطة التشغيلية والنظرة المستقبلية</h2>
+        <p class="section-title-en">Operational Plan &amp; Future Vision</p>
+
+        <div class="content-card">
+            <p>بعد الانتهاء من اعمال الترميم، سيتم تشغيل المبنى كمركز كنسي متكامل يجمع بين الدير، والمركز الرعوي، والمركز الشبابي والثقافي. وسيتم تخصيص طوابق ووحدات متعددة الاستخدام لخدمة الانشطة الدينية والاجتماعية والتعليمية.</p>
+            <p style="margin-top:12px;">كما سيتم تشغيل مشاريع صغيرة مدرة للدخل مثل متجر تراثي او معمل شمع او مخبز او خدمات ضيافة للزوار، بهدف تامين دخل مستدام يغطي نفقات التشغيل والصيانة.</p>
+            <p style="margin-top:12px;">مستقبلا، من المتوقع ان يصبح المشروع مركزا محوريا للحياة الروحية والاجتماعية والسياحية في البلدة، ونقطة جذب للزوار والحجاج، ونموذجا ناجحا للتكامل بين التراث والتنمية والخدمة المجتمعية.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+
+    <!-- Engineering Works -->
+    <section class="section" id="engineering">
+        <h2 class="section-title">الاعمال الهندسية المطلوبة</h2>
+        <p class="section-title-en">Required Engineering Works</p>
+
+        <div class="content-card">
+            <p>يتكون المشروع من 3 طوابق، بمساحة تقريبية 160 م&#178; لكل طابق (اجمالي 480 م&#178;)، ومساحات خارجية 80 م&#178;.</p>
+        </div>
+
+        <div class="objectives-grid">
+            <div class="objective-card">
+                <h4>اولا: الاعمال الانشائية</h4>
+                <ul>
+                    <li>اجراء فحوصات ودراسات هندسية وانشائية متخصصة</li>
+                    <li>تدعيم وتقوية العناصر الانشائية الضعيفة</li>
+                    <li>معالجة التشققات والتصدعات</li>
+                    <li>اعادة تاهيل الاسقف والجدران</li>
+                    <li>ترميم الحجر التاريخي والواجهات</li>
+                </ul>
+            </div>
+            <div class="objective-card">
+                <h4>ثانيا: اعمال الهدم والازالة</h4>
+                <ul>
+                    <li>خلع البلاط والارضيات القديمة</li>
+                    <li>ازالة التمديدات التالفة</li>
+                    <li>ازالة الاجزاء غير الامنة والمتضررة</li>
+                    <li>تنظيف وتاهيل كامل للموقع</li>
+                </ul>
+            </div>
+            <div class="objective-card">
+                <h4>ثالثا: اعمال البنية التحتية</h4>
+                <ul>
+                    <li>تنفيذ شبكات كهرباء جديدة بالكامل</li>
+                    <li>تنفيذ شبكات مياه وصرف صحي حديثة</li>
+                    <li>تركيب انظمة تكييف وتدفئة</li>
+                    <li>تجهيز انظمة انارة داخلية وخارجية</li>
+                </ul>
+            </div>
+            <div class="objective-card">
+                <h4>رابعا: اعمال العزل والحماية</h4>
+                <ul>
+                    <li>عزل الاسطح والجدران</li>
+                    <li>معالجة الرطوبة</li>
+                    <li>عزل داخلي وخارجي لضمان حماية المبنى مستقبلا</li>
+                </ul>
+            </div>
+            <div class="objective-card">
+                <h4>خامسا: الاعمال المعمارية والتشطيبات</h4>
+                <ul>
+                    <li>تقطيع وبناء طوب داخلي جديد حسب الاستخدامات</li>
+                    <li>تركيب ارضيات جديدة</li>
+                    <li>تنفيذ حمامات حديثة</li>
+                    <li>تجهيز مطابخ وخدمات</li>
+                    <li>اعمال دهانات وتشطيبات</li>
+                    <li>تركيب المنيوم وزجاج جديد</li>
+                    <li>تنفيذ ابواب داخلية وخارجية</li>
+                </ul>
+            </div>
+            <div class="objective-card">
+                <h4>سادسا: الاعمال الخارجية</h4>
+                <ul>
+                    <li>تاهيل الساحات والمداخل</li>
+                    <li>انارة خارجية</li>
+                    <li>تشجير وتنسيق الموقع</li>
+                    <li>تجهيز مسارات استقبال للزوار والحجاج</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+
+    <!-- Budget -->
+    <section class="section section-alt" id="budget">
+        <h2 class="section-title">جدول الكميات والتقدير المالي</h2>
+        <p class="section-title-en">Bill of Quantities &amp; Budget Estimate</p>
+
+        <div class="content-card" style="overflow-x: auto;">
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>رقم البند</th>
+                        <th>وصف البند</th>
+                        <th>الوحدة</th>
+                        <th>السعر الكلي (دولار)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>هدم وازالة داخلية - ازالة البلاط، القصارة، التمديدات، العناصر التالفة، الاثاث، ارجاع المبنى لحالة العظم شامل ازالة الطمم وتنظيف الموقع بالكامل</td>
+                        <td>مقطوع</td>
+                        <td>12,000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>اعمال الطوب والتقسيم الداخلي واعادة تقسيم الغرف والقاعات بالطوب</td>
+                        <td>مقطوع</td>
+                        <td>9,000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>اعمال كهربائية جديدة تشمل تمديدات كهرباء كاملة - اسلاك، لوحات، انارة، حماية</td>
+                        <td>مقطوع</td>
+                        <td>30,000</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>اعمال تاسيس للمياه وتمديدات الصرف الصحي</td>
+                        <td>مقطوع</td>
+                        <td>25,000</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>اعمال البلاط لجميع الطوابق والارضيات والادراج والساحات الخارجية والحمامات</td>
+                        <td>مقطوع</td>
+                        <td>35,000</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>اعمال القطع الصحية لكامل الطوابق</td>
+                        <td>مقطوع</td>
+                        <td>10,000</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>اعمال القصارة والدهان والطراشة والجفصين</td>
+                        <td>مقطوع</td>
+                        <td>25,000</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>صيانة الابواب والشبابيك التراثية</td>
+                        <td>مقطوع</td>
+                        <td>10,000</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>اعمال الالمنيوم والزجاج</td>
+                        <td>مقطوع</td>
+                        <td>9,000</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>اعمال الابواب الجديدة لكامل الطوابق</td>
+                        <td>مقطوع</td>
+                        <td>10,000</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>اعمال صيانة الكحلة والواجهات والساحات الخارجية</td>
+                        <td>مقطوع</td>
+                        <td>10,000</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>اعمال التاثيث والتجهيز من مطابخ خشب واثاث كامل لدير الكاهن والراهبات وطابق العام</td>
+                        <td>مقطوع</td>
+                        <td>50,000</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>الدراسات والفحوصات الهندسية</td>
+                        <td>مقطوع</td>
+                        <td>15,000</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><strong>المجموع الكلي</strong></td>
+                        <td></td>
+                        <td><strong>250,000</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total-highlight">
+            <p class="label">التكلفة الاجمالية المقدرة للمشروع</p>
+            <p class="amount">$250,000</p>
+            <p class="label">مئتان وخمسون الف دولار امريكي</p>
+        </div>
+
+        <div class="content-card">
+            <p>في ضوء ما تم عرضه من دراسة فنية وهندسية اولية، يتبين ان المشروع يمثل عملية اعادة تاهيل شاملة وجذرية لمبنى كنسي تاريخي متدهور، بحيث يتم تحويله من حالته الانشائية الحالية الى منشاة متكاملة امنة وصالحة للاستخدام وفق المعايير الهندسية الحديثة، مع الحفاظ على طابعه التراثي وقيمته المعمارية.</p>
+            <p style="margin-top:12px;">وعليه، فان تنفيذ الاعمال المقترحة ضمن هذه الدراسة يضمن استعادة كفاءة المبنى الانشائية والخدمية، ويؤهله ليكون ديرا ومركزا رعويا وشبابيا وثقافيا مستداما يخدم احتياجات الكنيسة والمجتمع على المدى الطويل، وبما يحقق الاستقرار الوظيفي والسلامة الانشائية والاستدامة التشغيلية للمشروع.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"><span class="cross-icon">&#9766;</span></div>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <p class="section-title-en">Contact Us</p>
+
+        <div class="content-card" style="text-align: center;">
+            <p><strong>كنيسة القديس جاورجيوس للروم الأرثوذكس</strong></p>
+            <p>الطيبة - رام الله - فلسطين</p>
+            <p>شارع الكنائس</p>
+            <div class="byzantine-border-thin"></div>
+            <p style="margin-top:15px;">نؤكد جاهزيتنا لتزويدكم باي وثائق او بيانات فنية اضافية عند الطلب</p>
+            <p style="margin-top:20px; color: var(--maroon); font-family: 'Amiri', serif; font-size: 1.1rem;">وتفضلوا ببالغ الاحترام والتقدير</p>
+            <p style="margin-top:25px; font-weight: 700;">رئيس المؤسسة</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="byzantine-border"></div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-cross">
+                <svg width="40" height="56" viewBox="0 0 50 70" class="orthodox-cross-svg">
+                    <rect x="22" y="0" width="6" height="70" fill="#C5A028"/>
+                    <rect x="15" y="8" width="20" height="5" fill="#C5A028"/>
+                    <rect x="10" y="22" width="30" height="6" fill="#C5A028"/>
+                    <rect x="13" y="55" width="24" height="5" fill="#C5A028" transform="rotate(-15 25 57.5)"/>
+                </svg>
+            </div>
+            <h3>كنيسة القديس جاورجيوس للروم الأرثوذكس - الطيبة</h3>
+            <p class="footer-subtitle">St. George Greek Orthodox Church - Taybeh</p>
+            <div class="footer-info">
+                <p>بطريركية الروم الأرثوذكس المقدسية</p>
+                <p>Greek Orthodox Patriarchate of Jerusalem</p>
+                <p>الطيبة - رام الله - فلسطين</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&#9766; جميع الحقوق محفوظة - كنيسة القديس جاورجيوس للروم الأرثوذكس &#9766;</p>
+            </div>
+        </div>
+    </footer>
+    <div class="byzantine-border"></div>
+</body>
+</html>
