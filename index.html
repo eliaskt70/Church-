@@ -527,28 +527,67 @@ body {
     <!-- Header -->
     <header class="site-header">
         <div class="header-content">
-            <img src="logo.png" alt="شعار كنيسة القديس جاورجيوس" class="church-logo" onerror="this.onerror=null;this.style.display='none';document.getElementById('logo-fallback').style.display='block';">
-            <svg id="logo-fallback" style="display:none;margin:0 auto 20px;" width="120" height="120" viewBox="0 0 120 120">
-                <circle cx="60" cy="60" r="58" fill="none" stroke="#800020" stroke-width="4"/>
-                <circle cx="60" cy="60" r="52" fill="none" stroke="#1B3A5C" stroke-width="2"/>
-                <circle cx="60" cy="60" r="48" fill="none" stroke="#C5A028" stroke-width="1"/>
-                <!-- Orthodox Cross -->
-                <rect x="57" y="25" width="6" height="55" fill="#800020"/>
-                <rect x="50" y="32" width="20" height="5" fill="#800020"/>
-                <rect x="45" y="42" width="30" height="5" fill="#800020"/>
-                <rect x="48" y="68" width="24" height="4" fill="#800020" transform="rotate(-15 60 70)"/>
-                <!-- Circular text path -->
-                <defs>
-                    <path id="topArc" d="M 20,60 a 40,40 0 0,1 80,0" fill="none"/>
-                    <path id="bottomArc" d="M 100,60 a 40,40 0 0,1 -80,0" fill="none"/>
-                </defs>
-                <text font-size="6" fill="#1B3A5C" font-family="'Noto Sans Arabic', Arial">
-                    <textPath href="#topArc" startOffset="50%" text-anchor="middle">بطريركية الروم الأرثوذكس المقدسية</textPath>
-                </text>
-                <text font-size="5" fill="#800020" font-family="'Noto Sans Arabic', Arial">
-                    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">كنيسة القديس جاورجيوس - الطيبة</textPath>
-                </text>
-            </svg>
+            <!-- Logo: SVG seal shown by default, replaced by real image if it loads -->
+            <div id="logo-container" style="display:block;text-align:center;margin:0 auto 20px;">
+                <svg id="logo-fallback" width="150" height="150" viewBox="0 0 150 150" style="display:block;margin:0 auto;">
+                    <!-- Outer circle - maroon -->
+                    <circle cx="75" cy="75" r="72" fill="none" stroke="#800020" stroke-width="3"/>
+                    <!-- Middle circle - navy -->
+                    <circle cx="75" cy="75" r="64" fill="none" stroke="#1B3A5C" stroke-width="2"/>
+                    <!-- Inner circle - gold thin -->
+                    <circle cx="75" cy="75" r="58" fill="none" stroke="#C5A028" stroke-width="1"/>
+                    <!-- Inner background -->
+                    <circle cx="75" cy="75" r="56" fill="#FAFAF7"/>
+                    <!-- Orthodox Cross - gold colored -->
+                    <!-- Vertical beam -->
+                    <rect x="71" y="28" width="8" height="70" fill="#C5A028"/>
+                    <!-- Top crossbar (small) -->
+                    <rect x="63" y="36" width="24" height="5" fill="#C5A028"/>
+                    <!-- Main crossbar (large) -->
+                    <rect x="56" y="50" width="38" height="6" fill="#C5A028"/>
+                    <!-- Slanted footrest -->
+                    <rect x="60" y="84" width="30" height="5" fill="#C5A028" transform="rotate(-20 75 86.5)"/>
+                    <!-- Decorative dots at cross ends -->
+                    <circle cx="56" cy="53" r="2" fill="#800020"/>
+                    <circle cx="94" cy="53" r="2" fill="#800020"/>
+                    <circle cx="75" cy="28" r="2" fill="#800020"/>
+                    <circle cx="75" cy="98" r="2" fill="#800020"/>
+                    <!-- Circular text paths -->
+                    <defs>
+                        <path id="topArc" d="M 18,75 a 57,57 0 0,1 114,0" fill="none"/>
+                        <path id="bottomArc" d="M 132,75 a 57,57 0 0,1 -114,0" fill="none"/>
+                    </defs>
+                    <text font-size="7.5" fill="#1B3A5C" font-family="'Noto Sans Arabic', 'Amiri', serif" font-weight="700">
+                        <textPath href="#topArc" startOffset="50%" text-anchor="middle">بطريركية الروم الأرثوذكس المقدسية</textPath>
+                    </text>
+                    <text font-size="7" fill="#800020" font-family="'Noto Sans Arabic', 'Amiri', serif" font-weight="600">
+                        <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">كنيسة القديس جاورجيوس - الطيبة</textPath>
+                    </text>
+                </svg>
+            </div>
+            <script>
+            (function() {
+                var filenames = ['logo.png', 'Logo.png', 'logo.PNG'];
+                var container = document.getElementById('logo-container');
+                var fallback = document.getElementById('logo-fallback');
+                var loaded = false;
+                filenames.forEach(function(name) {
+                    if (loaded) return;
+                    var img = new Image();
+                    img.onload = function() {
+                        if (loaded) return;
+                        loaded = true;
+                        img.alt = 'شعار كنيسة القديس جاورجيوس';
+                        img.className = 'church-logo';
+                        img.style.display = 'block';
+                        img.style.margin = '0 auto 20px';
+                        fallback.style.display = 'none';
+                        container.insertBefore(img, fallback);
+                    };
+                    img.src = name;
+                });
+            })();
+            </script>
             <p class="patriarchate-name">بطريركية الروم الأرثوذكس المقدسية</p>
             <p class="patriarchate-name-en">Greek Orthodox Patriarchate of Jerusalem</p>
             <h1 class="church-name">كنيسة القديس جاورجيوس للروم الأرثوذكس - الطيبة</h1>
