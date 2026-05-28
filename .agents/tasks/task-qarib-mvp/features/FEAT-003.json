@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "feat",
   "description": "Build the React Native (Expo) mobile app with full Arabic RTL support, navigation, authentication screens, map-based service discovery, service listing/detail, messaging, and profile management.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Create mobile/ directory with Expo project: npx create-expo-app or manual setup. package.json with dependencies: expo, react-native, react-navigation (native-stack, bottom-tabs), react-native-maps, expo-location, @react-native-async-storage/async-storage, axios, socket.io-client, react-native-gesture-handler, react-native-safe-area-context, expo-localization, i18next, react-i18next",
     "Create mobile/src/i18n/ - Arabic translations file (ar.json) with all UI strings in Arabic. Configure i18next with RTL support. Ensure the app forces RTL layout direction via I18nManager.forceRTL(true).",
@@ -38,5 +38,5 @@
     "Review key files to confirm RTL setup and Arabic strings are present"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "expo-asset, expo-font, and expo-constants needed to be installed separately (not listed in original deps). Web export validates compilation successfully. react-native-maps conditionally loaded only on native platforms to avoid web export issues. Used Platform.OS check to provide map placeholder on web."
 }
