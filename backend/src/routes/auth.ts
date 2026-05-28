@@ -2,17 +2,32 @@ import { Router, Request, Response } from 'express';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
 import { validationResult } from 'express-validator';
+import rateLimit from 'express-rate-limit';
+import { OAuth2Client } from 'google-auth-library';
 import db from '../config/database';
 import { generateToken } from '../middleware/auth';
 import { requestOtpValidator, verifyOtpValidator, googleAuthValidator } from '../utils/validators';
+
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const router = Router();
 
 // In-memory OTP store for MVP (phone -> { hash, expiresAt })
 const otpStore = new Map<string, { hash: string; expiresAt: Date }>();
 
+// Rate limit: 5 requests per phone per 10 minutes
+const otpRateLimiter = rateLimit({
+  windowMs: 10 * 60 * 1000,
+  max: 5,
+  keyGenerator: (req: Request) => req.body.phone || 'unknown',
+  message: { success: false, error: 'Too many OTP requests. Please try again later.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
+});
+
 // POST /api/auth/request-otp
-router.post('/request-otp', requestOtpValidator, async (req: Request, res: Response) => {
+router.post('/request-otp', otpRateLimiter, requestOtpValidator, async (req: Request, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.status(400).json({ success: false, error: errors.array()[0].msg });
@@ -107,21 +122,40 @@ router.post('/google', googleAuthValidator, async (req: Request, res: Response) 
   }
 
   try {
-    const { token, email, name, google_id } = req.body;
+    const { token, email, name } = req.body;
 
     if (!token) {
       res.status(400).json({ success: false, error: 'Google token is required' });
       return;
     }
 
-    // For MVP, accept the google_id directly from the client
-    // In production, verify the token with Google's API
-    const gId = google_id || token;
+    // Verify the Google ID token server-side
+    let gId: string;
+    let verifiedEmail: string | undefined;
+    let verifiedName: string | undefined;
+
+    try {
+      const ticket = await googleClient.verifyIdToken({
+        idToken: token,
+        audience: process.env.GOOGLE_CLIENT_ID,
+      });
+      const payload = ticket.getPayload();
+      if (!payload || !payload.sub) {
+        res.status(401).json({ success: false, error: 'Invalid Google token' });
+        return;
+      }
+      gId = payload.sub;
+      verifiedEmail = payload.email || email;
+      verifiedName = payload.name || name;
+    } catch {
+      res.status(401).json({ success: false, error: 'Google token verification failed' });
+      return;
+    }
 
     let user = await db('users').where('google_id', gId).first();
 
-    if (!user && email) {
-      user = await db('users').where('email', email).first();
+    if (!user && verifiedEmail) {
+      user = await db('users').where('email', verifiedEmail).first();
       if (user) {
         await db('users').where('id', user.id).update({ google_id: gId });
         user.google_id = gId;
@@ -133,8 +167,8 @@ router.post('/google', googleAuthValidator, async (req: Request, res: Response) 
         .insert({
           id: crypto.randomUUID(),
           google_id: gId,
-          email: email || null,
-          name: name || null,
+          email: verifiedEmail || null,
+          name: verifiedName || null,
           account_type: 'beneficiary',
         })
         .returning('*');

@@ -11,6 +11,7 @@ import userRoutes from './routes/users';
 import serviceRoutes from './routes/services';
 import messageRoutes from './routes/messages';
 import ratingRoutes from './routes/ratings';
+import { verifyToken } from './middleware/auth';
 
 const app = express();
 const server = http.createServer(app);
@@ -39,12 +40,36 @@ app.use('/api/ratings', ratingRoutes);
 
 // Socket.io for real-time messaging
 const chatNamespace = io.of('/chat');
-chatNamespace.on('connection', (socket) => {
-  console.log('User connected to chat:', socket.id);
 
-  socket.on('join', (userId: string) => {
-    socket.join(userId);
-    console.log(`User ${userId} joined their room`);
+// Socket.io authentication middleware
+chatNamespace.use((socket, next) => {
+  const token = socket.handshake.auth?.token;
+  if (!token) {
+    return next(new Error('Authentication required'));
+  }
+  try {
+    const payload = verifyToken(token);
+    socket.data.userId = payload.userId;
+    next();
+  } catch {
+    next(new Error('Invalid or expired token'));
+  }
+});
+
+chatNamespace.on('connection', (socket) => {
+  const userId = socket.data.userId;
+  console.log('User connected to chat:', socket.id, 'userId:', userId);
+
+  // Automatically join the user's own room
+  socket.join(userId);
+
+  socket.on('join', (roomId: string) => {
+    // Only allow users to join their own room
+    if (roomId !== userId) {
+      socket.emit('error', { message: 'Cannot join another user\'s room' });
+      return;
+    }
+    socket.join(roomId);
   });
 
   socket.on('send_message', (data: { receiver_id: string; message: unknown }) => {
