@@ -1,0 +1,89 @@
+{
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "retry": "إعادة المحاولة",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "confirm": "تأكيد",
+    "back": "رجوع",
+    "search": "بحث",
+    "noResults": "لا توجد نتائج",
+    "send": "إرسال"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "phoneNumber": "رقم الهاتف",
+    "enterPhone": "أدخل رقم هاتفك",
+    "requestOtp": "طلب رمز التحقق",
+    "googleSignIn": "تسجيل الدخول بحساب Google",
+    "otpTitle": "رمز التحقق",
+    "enterOtp": "أدخل الرمز المرسل إلى هاتفك",
+    "verifyOtp": "تحقق",
+    "resendOtp": "إعادة إرسال الرمز",
+    "resendIn": "إعادة الإرسال بعد {{seconds}} ثانية",
+    "welcome": "مرحبا بك في قريب"
+  },
+  "home": {
+    "title": "الرئيسية",
+    "welcome": "مرحبا بك",
+    "nearbyServices": "خدمات قريبة منك",
+    "neighborhood": "حيّك",
+    "viewAll": "عرض الكل",
+    "categories": "التصنيفات"
+  },
+  "search": {
+    "title": "البحث",
+    "searchPlaceholder": "ابحث عن خدمة...",
+    "mapView": "خريطة",
+    "listView": "قائمة",
+    "distance": "{{distance}} كم",
+    "noServicesFound": "لا توجد خدمات في هذه المنطقة"
+  },
+  "categories": {
+    "homeMaintenance": "صيانة منزلية",
+    "educational": "تعليمية",
+    "handcrafts": "حرف يدوية",
+    "homeCooking": "طبخ منزلي",
+    "delivery": "توصيل",
+    "beauty": "تجميل",
+    "techSupport": "دعم تقني"
+  },
+  "service": {
+    "requestService": "طلب الخدمة",
+    "contactNow": "تواصل الآن",
+    "reviews": "التقييمات",
+    "noReviews": "لا توجد تقييمات بعد",
+    "description": "الوصف",
+    "photos": "الصور",
+    "provider": "مقدم الخدمة",
+    "rating": "التقييم",
+    "distance": "المسافة"
+  },
+  "messages": {
+    "title": "الرسائل",
+    "noConversations": "لا توجد محادثات",
+    "typeMessage": "اكتب رسالتك...",
+    "sent": "تم الإرسال",
+    "delivered": "تم التوصيل",
+    "read": "تمت القراءة"
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "editProfile": "تعديل الملف الشخصي",
+    "myServices": "خدماتي",
+    "addService": "إضافة خدمة",
+    "accountType": "نوع الحساب",
+    "provider": "مقدم خدمة",
+    "seeker": "باحث عن خدمة",
+    "settings": "الإعدادات",
+    "locallyVerified": "تم التحقق محليا",
+    "yourNeighbor": "جارك"
+  },
+  "trust": {
+    "verified": "تم التحقق محليا",
+    "neighbor": "جارك"
+  }
+}

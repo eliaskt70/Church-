@@ -1,0 +1,42 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Build the React Native (Expo) mobile app with full Arabic RTL support, navigation, authentication screens, map-based service discovery, service listing/detail, messaging, and profile management.",
+  "status": "in_progress",
+  "steps": [
+    "Create mobile/ directory with Expo project: npx create-expo-app or manual setup. package.json with dependencies: expo, react-native, react-navigation (native-stack, bottom-tabs), react-native-maps, expo-location, @react-native-async-storage/async-storage, axios, socket.io-client, react-native-gesture-handler, react-native-safe-area-context, expo-localization, i18next, react-i18next",
+    "Create mobile/src/i18n/ - Arabic translations file (ar.json) with all UI strings in Arabic. Configure i18next with RTL support. Ensure the app forces RTL layout direction via I18nManager.forceRTL(true).",
+    "Create mobile/src/services/api.ts - Axios instance configured with base URL (configurable), JWT token injection via interceptor from AsyncStorage, request/response error handling",
+    "Create mobile/src/services/socket.ts - Socket.io client for real-time messaging, auto-connect on auth, handle incoming messages",
+    "Create mobile/src/navigation/AppNavigator.tsx - Main navigation structure: AuthStack (Login, OTPVerify) and MainTabs (Home/Map, Search/List, Messages, Profile) using React Navigation",
+    "Create mobile/src/screens/auth/LoginScreen.tsx - Phone number input (Arabic UI), 'Request OTP' button, Google sign-in button. Clean minimal design.",
+    "Create mobile/src/screens/auth/OTPScreen.tsx - 6-digit OTP input, verify button, resend timer. Navigate to main app on success.",
+    "Create mobile/src/screens/home/HomeScreen.tsx - Welcome message with neighborhood name, mini-map showing nearby services (react-native-maps MapView with markers for providers), quick category chips for filtering, 'Trust badge' indicators on markers",
+    "Create mobile/src/screens/search/SearchScreen.tsx - Search bar at top, category filter pills (Home Maintenance, Educational, Handcrafts, Home Cooking, etc.), toggle between Map View and List View. List shows services sorted nearest-to-farthest with distance badge.",
+    "Create mobile/src/screens/search/ServiceDetailScreen.tsx - Provider name, service description, photos gallery, rating stars, distance indicator, 'Request Service' and 'Contact Now' CTA buttons, reviews list",
+    "Create mobile/src/screens/messages/ConversationsScreen.tsx - List of active conversations with last message preview, unread indicator, timestamp",
+    "Create mobile/src/screens/messages/ChatScreen.tsx - Message bubbles (RTL aligned), text input, send button, real-time updates via Socket.io, auto-scroll to bottom",
+    "Create mobile/src/screens/profile/ProfileScreen.tsx - Display user info, account type badge, edit profile button, settings, logout. For providers: list of their services, add new service button.",
+    "Create mobile/src/components/ - Reusable components: ServiceCard (for list view), CategoryChip, RatingStars, TrustBadge ('Locally Verified' / 'Your Neighbor'), LoadingSpinner, EmptyState",
+    "Create mobile/src/hooks/useLocation.ts - Hook that requests location permissions via expo-location and returns current coords, with loading/error states",
+    "Create mobile/src/hooks/useAuth.ts - Auth context/hook managing JWT token storage, login/logout, current user state",
+    "Create mobile/app.json / app.config.ts - Expo configuration with app name 'Qarib', RTL support, required permissions (location, camera for photos)",
+    "Style all screens with consistent Arabic-friendly design: right-aligned text, appropriate Arabic fonts (use system fonts), green/teal primary color scheme suggesting trust and locality, adequate touch targets for all ages"
+  ],
+  "acceptance_criteria": [
+    "cd mobile && npm install completes without errors",
+    "cd mobile && npx expo export --platform web succeeds (validates compilation without needing device)",
+    "All screens have Arabic text with RTL layout",
+    "Navigation flow works: Login -> OTP -> Home (with map) -> Search -> Service Detail -> Chat",
+    "API service module correctly constructs requests to all backend endpoints",
+    "Map screen renders MapView with provider markers",
+    "Real-time messaging is wired with Socket.io client"
+  ],
+  "verification": [
+    "Run 'cd mobile && npm install' - should exit 0",
+    "Run 'cd mobile && npx expo export --platform web' to verify the app compiles (web export validates JS/TS compilation)",
+    "Review key files to confirm RTL setup and Arabic strings are present"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
